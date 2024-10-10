@@ -472,7 +472,6 @@ const JobCalculator = () => {
             </div>
 
             {[
-              'Deposit', 'Material Delivery', 'Material Delivery Payment 2', 'Final Payment',
               'Contract Total', 'Labor Cost', 'Material Amount', 'Shutter Cost', 'Credit Card Fees Amount',
               'Engineering Cost', 'Profit Percentage', 'Commissionable Amount', 'Commission Amount'
             ].map((label, idx) => (
@@ -531,8 +530,8 @@ const JobCalculator = () => {
             ))}
           </div>
 
-          <div className="flex lg:flex-row md:flex-row flex-col lg:items-center md:items-center gap-2 mt-2">
-            <label className="w-44 text-sm text-gray-700 capitalize font-semibold">Finance</label>
+          <div className="flex lg:flex-row md:flex-row flex-col lg:items-center md:items-center mt-2">
+            <label className="w-44 text-sm text-gray-700 capitalize font-semibold ms-4">Finance</label>
             {isEditing ? (
               <select
                 value={formData['finance'] || ''}
@@ -561,7 +560,7 @@ const JobCalculator = () => {
                     className="border border-gray-300 rounded-lg py-2 px-4 mt-1 w-full"
                   />
                 ) : (
-                  <span className="border border-gray-300 rounded-lg py-2 px-4 mt-1 w-full text-gray-700">
+                  <span className="border border-gray-300 rounded-lg py-2 px-4 mt-1 w-full text-gray-700 ms-4">
                     {formData['finance_amount'] ? `$${parseFloat(formData['finance_amount']).toFixed(2)}` : '$0.00'}
                   </span>
                 )}

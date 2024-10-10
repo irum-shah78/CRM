@@ -22,6 +22,7 @@ const Sidebar = () => {
   const menuItems = [
     { name: "Dashboard", icon: dashboardIcon, link: "/dashboard" },
     { name: "Lead Management", icon: leadManagementIcon, link: "/leadmanagement" },
+    { name: "Customer", icon: leadManagementIcon, link: "/customer" },
     {
       name: "Deal Management",
       icon: dealManagementIcon,

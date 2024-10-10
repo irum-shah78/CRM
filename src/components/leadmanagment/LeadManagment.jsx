@@ -42,6 +42,8 @@ const LeadManagment = () => {
   const handleSaveLead = () => {
     setLeads([...leads, { ...formData, id: leads.length + 1 }]);
     setFormData({
+      firstName: '',
+      lastName:'',
       leadName: '',
       leadOwner: '',
       leadStage: '',
@@ -128,6 +130,28 @@ const LeadManagment = () => {
                 <hr />
 
                 <div className="grid grid-cols-2 gap-4 mt-4">
+                <div>
+                    <label className="block mb-1 text-[14px] font-semibold">First Name</label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      placeholder="Enter first name"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      className="w-full border p-2 rounded border-[#CDCDCD]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block mb-1 text-[14px] font-semibold">Last Name</label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      placeholder="Enter last name"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      className="w-full border p-2 rounded border-[#CDCDCD]"
+                    />
+                  </div>
                   <div>
                     <label className="block mb-1 text-[14px] font-semibold">Lead Name</label>
                     <input
@@ -150,7 +174,7 @@ const LeadManagment = () => {
                       className="w-full border p-2 rounded border-[#CDCDCD]"
                     />
                   </div>
-                  <div>
+                  {/* <div>
                     <label className="block mb-1 text-[14px] font-semibold">Created Date</label>
                     <input
                       type="date"
@@ -171,7 +195,7 @@ const LeadManagment = () => {
                       onChange={handleInputChange}
                       className="w-full border p-2 rounded border-[#CDCDCD]"
                     />
-                  </div>
+                  </div> */}
                   <div className="col-span-2">
                     <label className="block mb-1 text-[14px] font-semibold">Lead Address</label>
                     <div className="relative w-full">
@@ -227,7 +251,7 @@ const LeadManagment = () => {
                 <table className="min-w-full table-auto divide-y divide-gray-200">
                   <thead className="bg-[#F4F7F9] rounded">
                     <tr>
-                      {['Id', 'Lead Name', 'Lead Stage', 'Lead Owner', 'Created Date', 'Appointment Date', 'Lead Address', 'Description', 'Action'].map((header) => (
+                      {['Id','First Name', 'Last Name', 'Lead Name', 'Lead Stage', 'Lead Owner', 'Created Date', 'Appointment Date', 'Lead Address', 'Description', 'Action'].map((header) => (
                         <th
                           key={header}
                           className="py-2 px-4 text-center text-sm font-medium tracking-wider "
@@ -241,6 +265,8 @@ const LeadManagment = () => {
                     {leads.map((lead, idx) => (
                       <tr key={idx} className={idx % 2 !== 0 ? 'bg-gray-100' : ''} onClick={() => handleRowClick(lead)}>
                         <td className="px-4 py-2 text-center">{lead.id}</td>
+                        <td className="px-4 py-2 text-center">{lead.firstName}</td>
+                        <td className="px-4 py-2 text-center">{lead.lastName}</td>
                         <td className="px-4 py-2 text-center">{lead.leadName}</td>
                         <td className="px-4 py-2 text-center">{lead.leadStage}</td>
                         <td className="px-4 py-2 text-center">{lead.leadOwner}</td>

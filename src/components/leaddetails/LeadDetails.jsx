@@ -7,6 +7,8 @@ const LeadDetails = () => {
   const { lead } = location.state || {};
 
   const [updatedLead, setUpdatedLead] = useState({
+    firstName: lead?.firstName || '',
+    lastName: lead?.lastName || '',
     leadName: lead?.leadName || '',
     leadOwner: lead?.leadOwner || '',
     leadEmail: lead?.leadEmail || '',
@@ -44,6 +46,26 @@ const LeadDetails = () => {
       <h1 className="text-2xl font-semibold text-center mb-6">Lead Details - {updatedLead.leadName}</h1>
 
       <div className="grid grid-cols-2 gap-6">
+      <div className="flex flex-col gap-2">
+          <label className="font-semibold">First Name</label>
+          <input
+            type="text"
+            name="firstName"
+            value={updatedLead.firstName}
+            onChange={handleInputChange}
+            className="border p-2 rounded"
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label className="font-semibold">Last Name</label>
+          <input
+            type="text"
+            name="lastName"
+            value={updatedLead.lastName}
+            onChange={handleInputChange}
+            className="border p-2 rounded"
+          />
+        </div>
         <div className="flex flex-col gap-2">
           <label className="font-semibold">Lead Name</label>
           <input
